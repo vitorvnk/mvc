@@ -16,8 +16,8 @@
     ]);
     //Rota do DEPOIMENTOS
     $obRouter->get('/depoimentos',[
-        function(){
-            return new Response(200, Pages\Testimony::getTestimonies());
+        function($request){
+            return new Response(200, Pages\Testimony::getTestimonies($request));
         }
     ]);
     //Rota do DEPOIMENTOS (Insert)
@@ -26,11 +26,6 @@
             return new Response(200, Pages\Testimony::insertTestimony($request));
         }
     ]);
-
-
-
-
-
 
     //Rota diâmica
     $obRouter->get('/pagina/{idPagina}/{acao}',[

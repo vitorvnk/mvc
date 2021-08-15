@@ -1,23 +1,14 @@
 <h1>Depoimentos</h1><hr>
 
 <section id="testimonies">
-    <div class="card text-dark mb-3">
-        <h5 class="card-header">Vitor Alexandre <small>15/08/2021</small></h5>
-        <div class="card-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam repellat quasi aspernatur tempora qui provident, repudiandae laboriosam at in perspiciatis placeat, illum esse deserunt totam. Eum saepe dolorum architecto minima.</div>
-    </div>
-    <div class="card text-dark mb-3">
-        <h5 class="card-header">Vitor Alexandre <small>15/08/2021</small></h5>
-        <div class="card-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam repellat quasi aspernatur tempora qui provident, repudiandae laboriosam at in perspiciatis placeat, illum esse deserunt totam. Eum saepe dolorum architecto minima.</div>
-    </div>
-    <div class="card text-dark mb-3">
-        <h5 class="card-header">Vitor Alexandre <small>15/08/2021</small></h5>
-        <div class="card-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam repellat quasi aspernatur tempora qui provident, repudiandae laboriosam at in perspiciatis placeat, illum esse deserunt totam. Eum saepe dolorum architecto minima.</div>
-    </div>
+    {{itens}}
+
+    {{pagination}}
 </section> <hr>
 
 <section id="form">
     <h3>Envie o seu Depoimento!</h3>
-    <form method="post">
+    <form method="post" action="?page=1">
         <div class="form-group">
             <label>Nome</label>
             <input type="text" class="form-control" name="nome" required>
