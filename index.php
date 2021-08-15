@@ -1,16 +1,6 @@
 <?php
-    require __DIR__.'/vendor/autoload.php';
-
+    require __DIR__ . '/includes/app.php';
     use \App\Http\Router;
-    use \App\Utils\View;
-
-
-    define('URL','http://localhost/mvc');
-
-    //Define o valor padrão das variáveis
-    View::init([
-        'URL' => URL
-    ]);
 
     //Inicia o Router
     $obRouter = new Router(URL);

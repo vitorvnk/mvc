@@ -122,8 +122,6 @@
             throw new Exception("URL não encontrada", 404);
         }
 
-
-
         //Metodo responsável por executar a rota atual
         public function run(){
             try{
