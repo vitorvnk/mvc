@@ -1,0 +1,6 @@
+# Ligar o Rewrite da URL
+RewriteEngine on
+
+#Regra de rewrit tudo para home page
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^(.*)$ ./index.php [QSA,NC]

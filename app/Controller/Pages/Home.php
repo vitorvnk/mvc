@@ -13,14 +13,12 @@
 
             //View da Home
             $content = View::render('pages/home',[
-                'name'          => $obOrganization->name,
-                'site'          => $obOrganization->site,
-                'description'   => $obOrganization->description
+                'name'          => $obOrganization->name
                 
             ]);
 
             //Retorna a View da página
-            return parent::getPage('Tela inicial', $content);
+            return parent::getPage('Home', $content);
         }
 
 

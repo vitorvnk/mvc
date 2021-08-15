@@ -18,13 +18,13 @@
             $this->postVars = $_POST ?? [];
             $this->headers = getallheaders();
             $this->httpMethod = $_SERVER['REQUEST_METHOD'] ?? '';
-            $this->url = $_SERVER['REQUEST_URI'] ?? '';
+            $this->uri = $_SERVER['REQUEST_URI'] ?? '';
         }
         public function getHttpMethod(){
             return $this->httpMethod;
         }
-        public function getUrl(){
-            return $this->url;
+        public function getUri(){
+            return $this->uri;
         }
         public function getHeaders(){
             return $this->headers;
