@@ -23,6 +23,8 @@
                 'mensagem' => $this->mensagem,
                 'data' => $this->data
             ]);
+
+            
             //Sucesso ao cadastrar
             return true;
         }
