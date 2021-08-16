@@ -17,7 +17,7 @@
             $paginaAtual = $queryParams['page'] ?? 1;
 
             //Instancia da Paginação
-            $obPagination = new Pagination($quantidadeTotal,$paginaAtual,5);
+            $obPagination = new Pagination($quantidadeTotal,$paginaAtual,10);
 
             //Resultados da página
             $results = EntityTestimony::getTestimonies(null,'id DESC',$obPagination->getLimit());

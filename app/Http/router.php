@@ -3,6 +3,7 @@
     use \Closure;
     use \Exception;
     use \ReflectionFunction;
+    use \App\Http\Middleware\Queue as MiddlewareQueue;
 
     class Router{
         //URL completa do projeto (Raiz)
@@ -32,11 +33,14 @@
             //Validação dos parâmetros
             foreach($params as $key=>$value){
                 if($value instanceof Closure){
-                    $params['controller' ]= $value;
+                    $params['controller']= $value;
                     unset($params[$key]);
                     continue;
                 }
             }
+
+            //Middlewares da Rota
+            $params['middlewares'] = $params['middlewares'] ?? [];
 
             //Variáveis da Rota
             $params['variables'] = [];
@@ -143,8 +147,8 @@
                     $args[$name] = $route['variables'][$name] ?? '';
                 }
 
-                //Retorna a execução da função
-                return call_user_func_array($route['controller'],$args);
+                //Retorna a Execução da fila de Middleware
+                return (new MiddlewareQueue($route['middlewares'],$route['controller'],$args))->next($this->request);
 
 
             }catch(Exception $e){

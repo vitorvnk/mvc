@@ -4,6 +4,7 @@
     use \App\Utils\View;
     use \WilliamCosta\DotEnv\Environment;
     use \WilliamCosta\DatabaseManager\Database;
+    use \App\Http\Middleware\Queue as MiddlewareQueue;
 
     //Carrega as variáveis de ambiente
     Environment::load(__DIR__.'/../');
@@ -25,6 +26,15 @@
         getenv('DB_PORT')
     );
 
+    //Define o mapeamento de Middleware
+    MiddlewareQueue::setMap([
+        'maintenance' => \App\Http\Middleware\Maintenance::class
+    ]);
+
+    //Define o mapeamento de Middleware padrões (Executados em todas as rotas)
+    MiddlewareQueue::setDefault([
+        'maintenance'
+    ]);
 
 
 ?>
