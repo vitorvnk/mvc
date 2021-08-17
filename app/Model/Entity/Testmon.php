@@ -15,6 +15,7 @@
         //Método responsável por cadastrar a instância atual no banco de dados
         public function cadastrar(){
             //Define a database
+            date_default_timezone_set('America/Sao_Paulo');
             $this->data = date('Y-m-d H:i:s');
 
             //Insere depoimentos no banco de dados
@@ -24,7 +25,6 @@
                 'data' => $this->data
             ]);
 
-            
             //Sucesso ao cadastrar
             return true;
         }
@@ -32,7 +32,6 @@
         public static function getTestimonies($where = null, $order = null, $limit=null, $fields = '*'){
             return (new Database('depoimentos'))->select($where, $order,$limit, $fields);
         }
-
 
 
 

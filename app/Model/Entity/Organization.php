@@ -6,9 +6,7 @@
         public $id = 1;
         public $name = 'Vitor Alexandre';
         public $site = 'https://www.linkedin.com/in/vittorvk2/';
-        public $description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, quibusdam. Nostrum sapiente delectus quis laboriosam assumenda suscipit non magnam, consequuntur obcaecati ullam eaque dolorum fugiat architecto explicabo earum quae aperiam.';
-
-
+        public $description = 'Uma pessoa fanática por tecnologia e inovação, que adora aprender novas tecnologias e sempre busca por desafios. A partir dos 15 anos de idade estudo informática, passando por cursos profissionalizante e atualmente superior em Ciência da Computação.';
     }
 
 ?>

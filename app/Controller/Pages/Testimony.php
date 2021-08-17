@@ -59,11 +59,11 @@
             $obTestimony->nome = $postVars['nome'];
             $obTestimony->mensagem = $postVars['mensagem'];
             $obTestimony->cadastrar();
-
-
+            
             //Retorna a página de listagem de depoimentos
             return self::getTestimonies($request);
         }
+        
 
 
     }
