@@ -161,6 +161,14 @@
             return $this->url.$this->getUri();
         }
 
+        //Metodo responsável por redirecionar a URL
+        public function redirect($route){
+            //URL
+            $url = $this->url.$route;
 
+            //Executa o redirect
+            header('location: '.$url);
+            exit;
+        }
     }   
 ?>
