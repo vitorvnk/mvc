@@ -2,45 +2,14 @@
     use \App\Http\Response;
     use \App\Controller\Admin;
 
-    //Rota do Admin
-    $obRouter->get('/admin',[
-        'middlewares' => [
-            'required-admin-login'
-        ],
-        function(){
-            return new Response(200, 'Admin');
-        }
-    ]);
+    //Inclui as rotas de Home
+    include __DIR__.'/admin/home.php';
 
-    //Rota de Login
-    $obRouter->get('/admin/login',[
-        'middlewares' => [
-            'required-admin-logout'
-        ],
-        function($request){
-            return new Response(200, Admin\Login::getLogin($request));
-        }
-    ]);
+    //Inclui as rotas de Login
+    include __DIR__.'/admin/login.php';
 
-    //Rota de Login(post)
-    $obRouter->post('/admin/login',[
-        'middlewares' => [
-            'required-admin-logout'
-        ],
-        function($request){
-            return new Response(200, Admin\Login::setLogin($request));
-        }
-    ]);
-
-    //Rota de Logout
-    $obRouter->get('/admin/logout',[
-        'middlewares' => [
-            'required-admin-login'
-        ],
-        function($request){
-            return new Response(200, Admin\Login::setLogout($request));
-        }
-    ]);
+    //Inclui as rotas de Depoimentos
+    include __DIR__.'/admin/testimonies.php';
 
 
 ?>

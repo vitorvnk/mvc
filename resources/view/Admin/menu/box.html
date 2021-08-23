@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a href="{{URL}}/admin" class="navbar-brand">VK2</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {{links}}
+            </ul>
+
+            <div class="d-flex justify-content-end" style="width:100%">
+                <a href="{{URL}}/admin/logout">
+                    <button class="btn text-danger" type="button">Sair</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
