@@ -63,8 +63,6 @@
             //Retorna a página de listagem de depoimentos
             return self::getTestimonies($request);
         }
-        
-
 
     }
 
