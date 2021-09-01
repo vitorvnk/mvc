@@ -33,6 +33,17 @@
             return (new Database('depoimentos'))->select($where, $order,$limit, $fields);
         }
 
+        //metodo responsável por retornar o depoimento com base ao ID
+        public static function getTestimonyById($id){
+            return self::getTestimonies('id = '.$id)->fetchObject(self::class);
+        }
+
+        //Exclui dos dados do banco
+        public function excluir(){
+            //Exclui depoimentos no banco de dados
+            return (new Database('depoimentos'))->delete('id = '.$this->id);
+        }
+
 
 
     }
