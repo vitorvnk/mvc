@@ -28,7 +28,13 @@
             $this->id = (new Database('usuarios'))->insert([
                 'nome' => $this->nome,
                 'email' => $this->email,
-                'senha' => $this->senha
+                'senha' => $this->senha,
+                'cep' => $this->cep,
+                'cidade' => $this->cidade,
+                'uf' => $this->uf,
+                'bairro' => $this->bairro,
+                'logradouro' => $this->logradouro,
+                'numero' => $this->numero
             ]);
 
             //Sucesso ao cadastrar
@@ -40,7 +46,13 @@
             return (new Database('usuarios'))->update('id = '.$this->id,[
                 'nome' => $this->nome,
                 'email' => $this->email,
-                'senha' => $this->senha
+                'senha' => $this->senha,
+                'cep' => $this->cep,
+                'cidade' => $this->cidade,
+                'uf' => $this->uf,
+                'bairro' => $this->bairro,
+                'logradouro' => $this->logradouro,
+                'numero' => $this->numero
             ]);
         }
 

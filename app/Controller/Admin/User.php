@@ -162,8 +162,6 @@
             }
         }
 
-
-
         //Retorna o formulário para edição de um usuário
         public static function getEditUser($request,$id){
             //Obtem o usuário do Banco de Dados

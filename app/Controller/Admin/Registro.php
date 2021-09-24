@@ -26,6 +26,13 @@
             $nome = $postVars['nome'] ?? '';
             $email = $postVars['email'] ?? '';
             $senha = $postVars['senha'] ?? '';
+            $senhaConfirm = $postVars['senhaConfirm'] ?? '';
+            $cep = $postVars['cep'] ?? '';
+            $cidade = $postVars['cidade'] ?? '';
+            $uf = $postVars['uf'] ?? '';
+            $bairro = $postVars['bairro'] ?? '';
+            $logradouro = $postVars['logradouro'] ?? '';
+            $numero = $postVars['numero'] ?? '';
 
             //Valida o e-mail do usuário
             $obUser = EntityUser::getUserByEmail($email);
@@ -34,12 +41,22 @@
                 //Redireciona o usuário
                 $request->getRouter()->redirect('/admin/registro?status=duplicated');
             }
+            if($senha != $senhaConfirm){
+                //Redireciona o usuário
+                $request->getRouter()->redirect('/admin/registro?status=passwordincorrect');
+            }
 
             //Nova instancia de Usuário
             $obUser = new EntityUser;
             $obUser->nome = $nome;
             $obUser->email = $email;
             $obUser->senha = password_hash($senha, PASSWORD_DEFAULT);
+            $obUser->cep = $cep;
+            $obUser->cidade = $cidade;
+            $obUser->uf = $uf;
+            $obUser->bairro = $bairro;
+            $obUser->logradouro = $logradouro;
+            $obUser->numero = $numero;
             $obUser->cadastrar();
 
             //Redireciona o usuário
@@ -62,6 +79,9 @@
                 case 'duplicated':
                     return Alert::getError('E-mail digitado já utilizado.');
                     break;
+                case 'passwordincorrect':
+                        return Alert::getError('Senhas não coincidem.');
+                        break;
             }
         }
     }
