@@ -11,6 +11,9 @@
     //Inclui as rotas do Painel
     include __DIR__.'/routes/admin.php';
 
+    //Inclui as rotas API
+    include __DIR__.'/routes/api.php';
+
     //imprimir o Response da rota
     $obRouter->run()->sendResponse();
 

@@ -44,7 +44,13 @@
             return (new Database('depoimentos'))->delete('id = '.$this->id);
         }
 
-
+        //Metodo responsável por atualizar os dados no banco
+        public function atualizar() {
+            return (new Database('depoimentos'))->update('id = '.$this->id,[
+                'nome' => $this->nome,
+                'mensagem' => $this->mensagem
+            ]);
+        }
 
     }
 

@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center">
+    <div class="card mt-3 text-dark text-center" style="width:70%; max-width:620px">
+        <div class="card-header d-flex">
+            <a href="{{URL}}/admin/login" class="d-inline-block">
+                <button type="submit" style="margin-top:9%" class="btn btn-outline-warning">Voltar</button>   
+            </a>
+            <h1 class="col-9 text-center">Registro</h1> 
+        </div>
+        
+
+
+        <div class="card-body">
+            {{status}}
+            <form method="post">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" name="nome" value="{{nome}}" required>
+                </div>
+                <div class="form-group my-3">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" value="{{email}}" required>
+                </div>
+                <div class="form-group my-3">
+                    <label>Senha</label>
+                    <input type="password" class="form-control" name="senha" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                </div>
+                
+                
+            </form>
+        </div>
+    </div>
+</div>

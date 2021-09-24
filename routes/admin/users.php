@@ -72,3 +72,17 @@
             return new Response(200,Admin\User::setDeleteUser($request,$id));
         }
     ]);
+
+    //Rota de Cadastro de um novo Usuário - Area Deslogada 
+    $obRouter->get('/admin/registro',[
+        function($request){
+            return new Response(200,Admin\Registro::getNewUser($request));
+        }
+    ]);
+
+    //Rota de Cadastro de um novo Usuário - Area Deslogada (post)
+    $obRouter->post('/admin/registro',[
+        function($request){
+            return new Response(200,Admin\Registro::setNewUser($request));
+        }
+    ]);

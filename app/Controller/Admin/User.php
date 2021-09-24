@@ -156,6 +156,9 @@
                 case 'duplicated':
                     return Alert::getError('E-mail digitado já utilizado.');
                     break;
+                case 'incorrect':
+                    return Alert::getError('Senha do usuário inválida.');
+                    break;
             }
         }
 
@@ -199,12 +202,19 @@
             $nome = $postVars['nome'] ?? '';
             $email = $postVars['email'] ?? '';
             $senha = $postVars['senha'] ?? '';
+            $senhaAtual = $postVars['senhaAtual'] ?? '';
 
             //Valida o e-mail do usuário
             $obUserEmail = EntityUser::getUserByEmail($email);
             if($obUserEmail instanceof EntityUser && $obUserEmail->id != $id){
                 //Redireciona o usuário
                 $request->getRouter()->redirect('/admin/users/'.$id.'/edit?status=duplicated');
+            }
+
+            //Verifica a senha do usuário
+            if(!password_verify($senhaAtual,$obUser->senha)){
+                //Redireciona o usuário
+                $request->getRouter()->redirect('/admin/users/'.$id.'/edit?status=incorrect');
             }
 
             //Atualiza a instância
@@ -218,8 +228,6 @@
         }
 
 
-        
-
         //Retorna o formulário para a exclusão de um Usuário
         public static function getDeleteUser($request,$id){
             //Obtem o Usuário do Banco de Dados
@@ -229,12 +237,12 @@
             if(!$obUser instanceof EntityUser){
                 $request->getRouter()->redirect('/admin/users');
             }
-
             //Conteudo do Formulário
             $content = View::render('admin/modules/users/delete', [
                 'title' => 'Excluir Depimento'.'<small> - ID: '.$id.'</small>',
                 'nome' => $obUser->nome,
-                'email' => $obUser->email
+                'email' => $obUser->email,
+                'status' => self::getStatus($request)
             ]);
         
 
@@ -247,9 +255,19 @@
             //Obtem o Usuário do Banco de Dados
             $obUser = EntityUser::getUserById($id);
 
+            //PostVars
+            $postVars = $request->getPostVars();
+            $senha = $postVars['senha'] ?? '';
+
             //Valida a instância
             if(!$obUser instanceof EntityUser){
                 $request->getRouter()->redirect('/admin/users');
+            }
+
+            //Verifica a senha do usuário
+            if(!password_verify($senha,$obUser->senha)){
+                //Redireciona o usuário
+                $request->getRouter()->redirect('/admin/users/'.$id.'/delete?status=incorrect');
             }
 
             //Exclui o usuário

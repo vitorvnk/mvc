@@ -14,6 +14,9 @@
         private $routes = [];
         //instância de request
         private $request = '';
+        //Content type padrão do response
+        private $contentType = 'text/html';
+
 
         public function __construct($url){
             $this->request = new Request($this);
@@ -27,6 +30,12 @@
             //Define o Prefixo
             $this->prefix = $parseUrl ['path'] ?? '';
         }
+
+        // Muda o contentType
+        public function setContentType($contentType){
+            $this->contentType = $contentType;
+        }
+
 
         //Responsável por adicionar uma rota na classe
         private function addRoute($method,$route,$params=[]){
@@ -86,9 +95,19 @@
 
             //Fatia a URI com o prefixo
             $xUri = strlen($this->prefix) ? explode($this->prefix, $uri) : [$uri];
-            
+
             //retorna a URI sem o prefixo
-            return end($xUri);
+            return rtrim(end($xUri), '/') == '' ? end($xUri) : rtrim(end($xUri), '/'); 
+
+
+
+
+
+
+
+
+
+
         }
 
         //método responsável por retornar os dados da rota atual
@@ -152,7 +171,23 @@
 
 
             }catch(Exception $e){
-                return new Response($e->getCode(),$e->getMessage());
+                return new Response($e->getCode(),$this->getErrorMessage($e->getMessage()),$this->contentType);
+            }
+        }
+
+        //Metodo responsável por retornar a mensagem de erro de acordo com o content type
+        private function getErrorMessage($message){
+            switch($this->contentType){
+                case 'application/json':
+                    return [
+                        'error' => $message
+                    ];
+                    break;
+
+                default:
+                    return $message;
+                    break;
+
             }
         }
 

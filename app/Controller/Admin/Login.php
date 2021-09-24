@@ -49,10 +49,7 @@
             SessionAdminLogin::logout();
 
             //Redireciona o usuário para a a tela de login
-            $request->getRouter()->redirect('/admin/login');
-
-
-
+            $request->getRouter()->redirect('/');
         }
 
     }
