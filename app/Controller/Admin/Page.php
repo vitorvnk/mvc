@@ -49,7 +49,7 @@
 
         //Metodo responsável por renderizar a view do painel com conteudos dinamicos
         public static function getPanel($title, $content, $currentModule) {
-            //renderiza a view do painel
+             //renderiza a view do painel
             $contentPanel = View::render('admin/panel',[
                 'menu' => self::getMenu($currentModule),
                 'content' =>$content

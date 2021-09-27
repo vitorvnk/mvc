@@ -3,6 +3,7 @@
     use \App\Utils\View;
     use \App\Model\Entity\User;
     use \App\Session\Admin\Login as SessionAdminLogin;
+    use \App\Model\Entity\User as EntityUser;
 
     class Login extends Page{
         //Metodo responsável por retornar a renderização da pagina de Login
@@ -11,7 +12,7 @@
 
             //Conteudo da Página de Login
             $content = View::render('admin/login',[
-                'status' => $status
+                'statusLogin' => $status
             ]);
 
             //Retorna a Página completa
@@ -51,8 +52,6 @@
             //Redireciona o usuário para a a tela de login
             $request->getRouter()->redirect('/');
         }
-
     }
-
 
 ?>

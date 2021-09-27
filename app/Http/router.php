@@ -99,15 +99,6 @@
             //retorna a URI sem o prefixo
             return rtrim(end($xUri), '/') == '' ? end($xUri) : rtrim(end($xUri), '/'); 
 
-
-
-
-
-
-
-
-
-
         }
 
         //método responsável por retornar os dados da rota atual
@@ -131,8 +122,6 @@
                         $keys = $methods[$httpMethod]['variables'];
                         $methods[$httpMethod]['variables'] = array_combine($keys,$matches);
                         $methods[$httpMethod]['variables']['request'] = $this->request;
-
-
 
                         //Retorno dos parâmetros da rota
                         return $methods[$httpMethod];

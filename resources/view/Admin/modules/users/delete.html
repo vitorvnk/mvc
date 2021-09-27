@@ -9,7 +9,10 @@
 <form method="post">
     {{status}}
     <div class="form-group">
-        Você realmente deseja excluir usuário <b>{{nome}}</b> com e-mail <b>"{{email}}</b>"?
+        <p>Você realmente deseja excluir usuário <b>{{nome}}</b> com e-mail <b>"{{email}}</b>"?</p>
+        
+        <label for="floatingInput">Digite sua senha:</label>
+        <input type="password" class="form-control" name="senha" placeholder="**********"  required autofocus>
     </div>
 
     <div class="form-group mt-3">

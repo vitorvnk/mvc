@@ -4,11 +4,9 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <a href="{{URL}}"><button class="btn btn-light">Home</button></a>
-                <a href="{{URL}}/depoimentos"><button class="btn btn-light">Depoimentos</button></a>
-                <a href="{{URL}}/sobre"><button class="btn btn-light">Sobre</button></a>
+        <div class="collapse navbar-collapse navbar-dark bg-dark" id="navbarNav">
+            <ul class="navbar-nav bg-dark">
+                {{links}}
             </ul>
 
             <div class="d-flex justify-content-end" style="width:100%">
