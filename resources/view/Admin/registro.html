@@ -5,94 +5,126 @@
         height: 50px;
     }
 </style>
-
-
-        <div class="card-body text-dark">
+        <div class="card-body">
             {{status}}
             <form method="post">
-                <div class="row my-2">
-                    <div class="col-lg-12">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="inputs" name="nome" required>
-                            <label for="floatingInput">Nome</label>
+                <div>
+                    <div class="row my-2">
+                        <div class="col-lg-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="inputs" name="nome" required>
+                                <label for="floatingInput">Nome</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-lg-12 "> 
-                        <div class="form-group">
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="inputs" name="email" required>
-                                <label for="floatingInput">E-mail</label>
-                            </div> 
+                    <div class="row my-2">
+                        <div class="col-lg-12 "> 
+                            <div class="form-group">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="inputs" name="email" required>
+                                    <label for="floatingInput">E-mail</label>
+                                </div> 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row my-2" >
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="inputs" name="senha" required>
-                                <label for="floatingInput">Senha</label>
-                            </div> 
+                    <div class="row my-2" >
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="inputs" name="senha" required>
+                                    <label for="floatingInput">Senha</label>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="inputs" name="senhaConfirm" required>
+                                    <label for="floatingInput">Confirmar Senha</label>
+                                </div> 
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <hr>
+                    <div class="col-lg12">
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="inputs" name="senhaConfirm" required>
-                                <label for="floatingInput">Confirmar Senha</label>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row my-2">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="inputs" name="cep" required>
+                                <input type="number" class="form-control" id="inputs" name="cep" onfocusout="buscarCep(event)" required>
                                 <label for="floatingInput">CEP</label>
                             </div> 
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="inputs" name="cidade" required>
-                            <label for="floatingInput">Cidade</label>
-                        </div> 
+                    <div class="row my-2">
+                        <div class="col-lg-9">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="inputs" name="logradouro"  required>
+                                <label for="floatingInput">Logradouro</label>
+                            </div> 
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="inputs" name="numero"  required>
+                                <label for="floatingInput">Numero</label>
+                            </div> 
+                        </div>
                     </div>
-                    <div class="col-lg-2">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="inputs" name="uf" required>
-                            <label for="floatingInput">UF</label>
-                        </div> 
+                    <div class="row my-2">
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="inputs" name="bairro" required>
+                                <label for="floatingInput">Bairro</label>
+                            </div> 
+                        </div>
+                    
+                        <div class="col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="inputs" name="cidade" required>
+                                <label for="floatingInput">Cidade</label>
+                            </div> 
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="inputs" name="uf" required>
+                                <label for="floatingInput">UF</label>
+                            </div> 
+                        </div>
                     </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-lg-12">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="inputs" name="bairro" required>
-                            <label for="floatingInput">Bairro</label>
-                        </div> 
+                    <div class="mx-auto" style="width: 120px;">
+                        <button type="submit" class="btn btn-success text-center">Cadastrar</button>
                     </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-lg-9">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="inputs" name="logradouro" required>
-                            <label for="floatingInput">Logradouro</label>
-                        </div> 
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="inputs" name="numero" required>
-                            <label for="floatingInput">Numero</label>
-                        </div> 
-                    </div>
-                </div>
-                <div class="mx-auto" style="width: 120px;">
-                    <button type="submit" class="btn btn-success text-center">Cadastrar</button>
-                </div>
+                    
+                </div>             
             </form>
         </div>
+        <script>
+            async function buscarCep(event) {
+                let cont = 0;
+                // o target do event é o elemento que está disparando o evento, ou seja, o input
+                let input = event.target.value; // 17500-100
+                let cep = input.match(/\d+/g).join(''); // 17500100
+            
+                let res = await fetch("https://viacep.com.br/ws/" + cep + "/json");
+                if (res.status == 200) {
+                    let endereco = await res.json();
+                    let cidade = document.querySelector("form input[name=cidade]");
+                    cidade.value = endereco.localidade;
+                    let uf = document.querySelector("form input[name=uf]");
+                    uf.value = endereco.uf;
+                    let bairro = document.querySelector("form input[name=bairro]");
+                    bairro.value = endereco.bairro;
+                    let logradouro = document.querySelector("form input[name=logradouro]");
+                    logradouro.value = endereco.logradouro;
+                    let numero = document.querySelector("form input[name=numero]");
+            
+                    if (bairro.value == "") {
+                        bairro.focus();
+                    } else if (logradouro.value == "") {
+                        logradouro.focus();
+                    } else if (numero.value == "") {
+                        numero.focus();
+                    }
+                    console.log(numero.value);
+                }
+            }
+        </script>
+        

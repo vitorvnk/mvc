@@ -2,6 +2,7 @@
     namespace App\Controller\Admin;
     use \App\Utils\View;
     use \App\Model\Entity\User as EntityUser;
+    use \App\WebService\ViaCep;
 
     class Registro extends Page{
         //Retorna o formulário para o cadastro de um novo Usuário
@@ -9,17 +10,21 @@
             //Conteudo do Formulário
             $content = View::render('admin/registro', [
                 'title' => 'Cadastrar Usuários',
-                'nome' => '',
-                'email' => '',
                 'status' => self::getStatus($request)
             ]);
-        
 
             //Retorna a Página completa
             return parent::getPage('Registro', $content);
         }
+            /*
+            $dadosCEP = ViaCep::consultarCEP(17511470);
+            echo "<pre>";
+            print_r($dadosCEP);
+            echo "<pre>";
+            */
+        
 
-        //Responsável por cadastrar um novo Usuário
+         //Responsável por cadastrar um novo Usuário
         public static function setNewUser($request){
             //Post Vars
             $postVars = $request->getPostVars();
@@ -85,6 +90,4 @@
             }
         }
     }
-
-
 ?>

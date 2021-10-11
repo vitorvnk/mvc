@@ -99,6 +99,12 @@
                 'title' => 'Cadastrar Usuários',
                 'nome' => '',
                 'email' => '',
+                'cep' => '',
+                'cidade' => '',
+                'uf' => '',
+                'bairro' => '',
+                'logradouro' => '',
+                'numero' => '',
                 'status' => self::getStatus($request)
             ]);
         
@@ -114,6 +120,12 @@
             $nome = $postVars['nome'] ?? '';
             $email = $postVars['email'] ?? '';
             $senha = $postVars['senha'] ?? '';
+            $cep = $postVars['cep'] ?? '';
+            $cidade = $postVars['cidade'] ?? '';
+            $uf = $postVars['uf'] ?? '';
+            $bairro = $postVars['bairro'] ?? '';
+            $logradouro = $postVars['logradouro'] ?? '';
+            $numero = $postVars['numero'] ?? '';
 
             //Valida o e-mail do usuário
             $obUser = EntityUser::getUserByEmail($email);
@@ -128,6 +140,12 @@
             $obUser->nome = $nome;
             $obUser->email = $email;
             $obUser->senha = password_hash($senha, PASSWORD_DEFAULT);
+            $obUser->cep = $cep ;
+            $obUser->cidade = $cidade ;
+            $obUser->uf = $uf ;
+            $obUser->bairro = $bairro ;
+            $obUser->logradouro = $logradouro ;
+            $obUser->numero = $numero ;
             $obUser->cadastrar();
 
             //Redireciona o usuário
@@ -177,6 +195,12 @@
                 'title' => 'Editar Usuário'.'<small> - ID: '.$id.'</small>',
                 'nome' => $obUser->nome,
                 'email' => $obUser->email,
+                'cep' => $obUser->cep,
+                'cidade' => $obUser->cidade,
+                'uf' => $obUser->uf,
+                'bairro' => $obUser->bairro,
+                'logradouro' => $obUser->logradouro,
+                'numero' => $obUser->numero,
                 'status' => self::getStatus($request)
             ]);
         
@@ -199,8 +223,20 @@
             $postVars = $request->getPostVars();
             $nome = $postVars['nome'] ?? '';
             $email = $postVars['email'] ?? '';
-            $senha = $postVars['senha'] ?? '';
             $senhaAtual = $postVars['senhaAtual'] ?? '';
+            $cep = $postVars['cep'] ?? '';
+            $cidade = $postVars['cidade'] ?? '';
+            $uf = $postVars['uf'] ?? '';
+            $bairro = $postVars['bairro'] ?? '';
+            $logradouro = $postVars['logradouro'] ?? '';
+            $numero = $postVars['numero'] ?? '';
+
+            // Verifica se alguma nova senha foi digitada
+            if ($postVars['senha'] == ''){
+                $senha = $senhaAtual;
+            } else {
+                $senha = $postVars['senha'];
+            }
 
             //Valida o e-mail do usuário
             $obUserEmail = EntityUser::getUserByEmail($email);
@@ -219,6 +255,12 @@
             $obUser->nome = $nome ;
             $obUser->email = $email ;
             $obUser->senha = password_hash($senha, PASSWORD_DEFAULT);
+            $obUser->cep = $cep ;
+            $obUser->cidade = $cidade ;
+            $obUser->uf = $uf ;
+            $obUser->bairro = $bairro ;
+            $obUser->logradouro = $logradouro ;
+            $obUser->numero = $numero ;
             $obUser->atualizar();
 
             //Redireciona o usuário

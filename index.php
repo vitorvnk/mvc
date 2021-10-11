@@ -1,5 +1,6 @@
 <?php
     require __DIR__ . '/includes/app.php';
+    require __DIR__ . '/vendor/autoload.php';
     use \App\Http\Router;
 
     //Inicia o Router
@@ -16,5 +17,4 @@
 
     //imprimir o Response da rota
     $obRouter->run()->sendResponse();
-
 ?>
