@@ -76,16 +76,19 @@
             //Status
             if(!isset($queryParams['status'])) return '';
 
+            //URL atual (Sem GETs)
+            $url = $request->getRouter()->getCurrentUrl();
+
             //Mensagens
             switch($queryParams['status']){
                 case 'created':
-                    return Alert::getSucess('Usuário criado com Sucesso!');
+                    return Alert::getSucess('Usuário criado com Sucesso!',$url);
                     break;
                 case 'duplicated':
-                    return Alert::getError('E-mail digitado já utilizado.');
+                    return Alert::getError('E-mail digitado já utilizado.',$url);
                     break;
                 case 'passwordincorrect':
-                        return Alert::getError('Senhas não coincidem.');
+                        return Alert::getError('Senhas não coincidem.',$url);
                         break;
             }
         }

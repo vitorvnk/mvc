@@ -1,3 +1,14 @@
+<style>
+    #text-erro{
+        margin-top: 7px;
+    }
+</style>
+
+
 <div class="alert alert-{{tipo}}" role="alert">
-    {{mensagem}}
+    <div class="d-flex">
+        <div class="p-0 w-100" id="text-erro">{{mensagem}}</div>
+        <div class="p-0 flex-shrink-1"> <a href="{{LINK_ATUAL}}"> <button class="btn text-{{tipo}}" type="button">X</button> </a> </div>
+    </div>
 </div>
+

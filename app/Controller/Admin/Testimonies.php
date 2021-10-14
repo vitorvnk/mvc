@@ -131,16 +131,20 @@
             //Status
             if(!isset($queryParams['status'])) return '';
 
+            //URL atual (Sem GETs)
+            $url = $request->getRouter()->getCurrentUrl();
+
+
             //Mensagens
             switch($queryParams['status']){
                 case 'created':
-                    return Alert::getSucess('Depoimento criado com Sucesso!');
+                    return Alert::getSucess('Depoimento criado com Sucesso!',$url);
                     break;
                 case 'updated':
-                    return Alert::getSucess('Depoimento atualizado com Sucesso!');
+                    return Alert::getSucess('Depoimento atualizado com Sucesso!',$url);
                     break;
                 case 'deleted':
-                    return Alert::getSucess('Depoimento excluído com Sucesso!');
+                    return Alert::getSucess('Depoimento excluído com Sucesso!',$url);
                     break;
             }
         }

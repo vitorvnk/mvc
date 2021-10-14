@@ -4,17 +4,19 @@
 
     class Alert{
         //Metodo responsável por retornar uma mensagem de sucesso
-        public static function getSucess($message) {
+        public static function getSucess($message,$url) {
             return View::render('admin/alert/status',[
                 'tipo' => 'success',
-                'mensagem' => $message
+                'mensagem' => $message,
+                'LINK_ATUAL' => $url
             ]);
         }
         //Metodo responsável por retornar uma mensagem de erro
-        public static function getError($message) {
+        public static function getError($message,$url) {
             return View::render('admin/alert/status',[
                 'tipo' => 'danger',
-                'mensagem' => $message
+                'mensagem' => $message,
+                'LINK_ATUAL' => $url
             ]);
         }
     }

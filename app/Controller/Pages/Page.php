@@ -8,10 +8,6 @@
                 'label' =>'Home',
                 'link' => URL.'/'
             ],
-            'Galeria' => [
-                'label' =>'Galeria',
-                'link' => URL.'/galeria'
-            ],
             'Depoimentos' => [
                 'label' =>'Depoimentos',
                 'link' => URL.'/depoimentos'

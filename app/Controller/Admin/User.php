@@ -97,6 +97,9 @@
             //Conteudo do Formulário
             $content = View::render('admin/modules/users/form', [
                 'title' => 'Cadastrar Usuários',
+                'text_senha1' => 'Senha',
+                'text_senha2' => 'Confirmar Senha',
+                'button_save' => 'Cadastrar',
                 'nome' => '',
                 'email' => '',
                 'cep' => '',
@@ -107,7 +110,6 @@
                 'numero' => '',
                 'status' => self::getStatus($request)
             ]);
-        
 
             //retorna a página completa
             return parent::getPanel('Cadastrar Usuários', $content,'users');
@@ -160,22 +162,25 @@
             //Status
             if(!isset($queryParams['status'])) return '';
 
+            //URL atual (Sem GETs)
+            $url = $request->getRouter()->getCurrentUrl();
+
             //Mensagens
             switch($queryParams['status']){
                 case 'created':
-                    return Alert::getSucess('Usuário criado com Sucesso!');
+                    return Alert::getSucess('Usuário criado com Sucesso!',$url);
                     break;
                 case 'updated':
-                    return Alert::getSucess('Usuário atualizado com Sucesso!');
+                    return Alert::getSucess('Usuário atualizado com Sucesso!',$url);
                     break;
                 case 'deleted':
-                    return Alert::getSucess('Usuário excluído com Sucesso!');
+                    return Alert::getSucess('Usuário excluído com Sucesso!',$url);
                     break;
                 case 'duplicated':
-                    return Alert::getError('E-mail digitado já utilizado.');
+                    return Alert::getError('E-mail digitado já utilizado.',$url);
                     break;
                 case 'incorrect':
-                    return Alert::getError('Senha do usuário inválida.');
+                    return Alert::getError('Senha do usuário inválida.',$url);
                     break;
             }
         }
@@ -193,6 +198,9 @@
             //Conteudo do Formulário
             $content = View::render('admin/modules/users/form', [
                 'title' => 'Editar Usuário'.'<small> - ID: '.$id.'</small>',
+                'text_senha1' => 'Senha Atual',
+                'text_senha2' => 'Nova Senha',
+                'button_save' => 'Salvar',
                 'nome' => $obUser->nome,
                 'email' => $obUser->email,
                 'cep' => $obUser->cep,

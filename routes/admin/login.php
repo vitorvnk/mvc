@@ -45,3 +45,17 @@
             return new Response(200,Admin\Registro::setNewUser($request));
         }
     ]);
+
+    //Rota para Esquecimento de Senha - Area Deslogada
+    $obRouter->get('/admin/recovery',[
+        function($request){
+            return new Response(200,'Página em Construção!');
+        }
+    ]);
+
+    //Rota de Cadastro de um novo Usuário - Area Deslogada (post)
+    $obRouter->post('/admin/recovery',[
+        function($request){
+            return new Response(200,'');
+        }
+    ]);

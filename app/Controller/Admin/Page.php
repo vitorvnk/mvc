@@ -23,7 +23,8 @@
         public static function getPage($title, $content) {
             return View::render('admin/page',[
                 'title' => $title,
-                'content' => $content
+                'content' => $content,
+                'footer' => self::getFooter()
             ]);
         }
 
@@ -52,11 +53,16 @@
              //renderiza a view do painel
             $contentPanel = View::render('admin/panel',[
                 'menu' => self::getMenu($currentModule),
-                'content' =>$content
+                'content' =>$content,
+                'footer' => self::getFooter()
             ]);
 
             //retorna a página renderizada
             return self::getPage($title, $contentPanel);
+        }
+        //Retorna o rodapé da página
+        private static function getFooter() {
+            return View::render('pages/footer');
         }
 
     }
