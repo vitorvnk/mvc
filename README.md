@@ -1,5 +1,5 @@
 ## MVC - PHP
-> Status: Desenvolvimento 💻
+> Status: Parcialmente concluído 💻
 
 ### Objetivos
 Esse projeto tem por meta testar conhecimentos e adquirir experiência no desenvolvimento utilizando a linguagem PHP e sincronização dinâmica com o MySQL.
