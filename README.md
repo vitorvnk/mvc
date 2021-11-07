@@ -23,8 +23,6 @@ git clone (esse projeto) na pasta 'htdocs' no diretório 'C:\xampp'.
 
 ```sql
 CREATE DATABASE projeto_mvc;
-CREATE TABLE depoimentos;
-CREATE TABLE usuarios;
 ```
 
 + Arquivo ENV 
